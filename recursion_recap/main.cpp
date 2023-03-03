@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define el '\n';
+#define el '\n'
+#define cel cout << '\n';
 // void print_triangle(int levels)
 // {
 //     if(levels == 0) return;
@@ -68,14 +69,22 @@ using namespace std;
 //     accumulate_arr(arr,len - 1);
 //     arr[len - 1] += arr[len - 2];
 // }
+// void left_max(int arr[] , int len)
+// {
+//     if(len == 1)
+//         return;
+//     left_max(arr,len - 1);
+//     arr[len - 1] = max(arr[len - 1] , arr[len - 2]);
+// }
 int main(){
     // print_triangle(5);
     // fun3n(9);
     // cout << length_3n_plus_1(6) << "\n";
     // cout << my_pow(3) << '\n';
-    // int arr[] = {1,2,3,4,5,6};
+    int arr[] = {1,3,5,7,4,2};
+    // left_max(arr,6);
     // accumulate_arr(arr,6);
-    // for(auto i : arr) cout << i << " ";
-    // cout << '\n';
+    for(auto i : arr) cout << i << " ";
+    cel
     return 0;
 }
