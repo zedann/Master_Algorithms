@@ -38,6 +38,13 @@ int sum(int arr[] , int len)
     if(len == 1) return arr[0];
     return sum(arr,len - 1) + arr[len - 1];
 }
+double arr_avg(int arr[] , int len){
+    //
+}
+void arr_increment(int arr[] , int len)
+{
+    
+}
 int main(){
     // print_triangle(5);
     // fun3n(9);
