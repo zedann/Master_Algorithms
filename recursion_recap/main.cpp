@@ -2,6 +2,7 @@
 using namespace std;
 #define el '\n'
 #define cel cout << '\n';
+#define loop(x) for(int i = 0 ; i < x ; i++)
 void print_triangle(int levels)
 {
     if(levels == 0) return;
@@ -123,27 +124,64 @@ int count_primes(int start , int end){
     res += (is_prime(start));
     return res;
 }
-int grid_sum(){
+int di[] = {1,0,1};
+int dj[] = {0,1,1};
+int grid_sum(int grid[3][3] , int ROWS , int COLS , int row = 0 , int col = 0){
+    int sum = grid[row][col];
+    int mx_idx = -1 , mx_value = -1e9;
+    if(row == ROWS-1 && col == COLS - 1) return sum;
+    for(int d = 0 ; d < 3 ; d++){
+        int new_row = row + di[d];
+        int new_col = col + dj[d];
+        if(new_row >= ROWS || new_col >= COLS)
+            continue;
+        if(grid[new_row][new_col] > mx_value){
+            mx_idx = d;
+            mx_value = grid[new_row][new_col];
+        }
+        
+    }
+    int new_row = row + di[mx_idx];
+    int new_col = col + dj[mx_idx];
 
+    return sum + grid_sum(grid,ROWS,COLS ,new_row,new_col);
 }
 int fibonacci(int n){
     if(n <= 1) 
         return 1;
     return fibonacci(n-1) + fibonacci(n-2);
 }
+const int N = 1e3 + 5;
+int dp[N];
+int fib(int n){
+    if(n <= 1)
+        return 1;
+    
+    if(dp[n] != -1)
+        return dp[n];
+    
+    dp[n] = fib(n-1) + fib(n-2);
 
+    return dp[n];
+}
 int main(){
     // print_triangle(5);
     // fun3n(9);
     // cout << length_3n_plus_1(6) << "\n";
     // cout << my_pow(3) << '\n';
     int arr[] = {1,3,5,7,4,2};
+    // int grid_arr[3][3] = {{1,7,8},{2,10,11},{20,5,9}};
     // left_max(arr,6);
     // accumulate_arr(arr,6);
     // right_max(arr,6);
     //  cout << suffix_sum(arr,6,3) << '\n';
     //  cout << prefix_sum(arr,6,3) << '\n';
-    cout << count_primes(10,20) << '\n';
+    // cout << count_primes(10,20) << '\n';
+    // cout << grid_sum(grid_arr,3,3) << '\n';
+    loop(N){
+        dp[i] = -1;
+    }
+    cout << fib(6) << '\n';
     for(auto i : arr) cout << i << " ";
     cel
     return 0;
