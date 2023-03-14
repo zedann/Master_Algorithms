@@ -16,12 +16,26 @@ void insertion_sort(vector<int>&arr){
         arr[j+1] = key;
     }
 }
+void selection_sort(vector<int>&arr)
+{
+    int n = arr.size();
+    for(int i = 0 ; i < n-1 ; i++){
+        int min = i;
+        for(int j = i + 1 ; j < n ;j++)
+            if(arr[j] < arr[min])
+                min = j;
+            
+        swap(arr[i] , arr[min]);
+    }
+}
 int main(){
     vector<int>arr = {9,2,10,0,5,3,90,85};
-    insertion_sort(arr);
+    //insertion_sort(arr);
+    selection_sort(arr);
     loop(arr.size()){
         cout << arr[i] << ' ';
     }
+
     
    cel return 0;
 }
