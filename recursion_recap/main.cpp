@@ -184,5 +184,8 @@ int main(){
     cout << fib(6) << '\n';
     for(auto i : arr) cout << i << " ";
     cel
+
+    vector<string>v;
+    v.resize(5);
     return 0;
 }

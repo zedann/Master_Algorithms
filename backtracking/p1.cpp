@@ -21,6 +21,7 @@ public:
         adj=graph;
         memset(vis, 0 , sizeof vis);
         dfs(0);
+        
         return res;
     }
 };
